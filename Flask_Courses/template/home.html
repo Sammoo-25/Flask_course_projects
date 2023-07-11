@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+</head>
+<body>
+  <h1>Hello, {{ name }} You are on the home page!! </h1>
+  {% if display %}
+  <h2>Print this</h2>
+  {% else %}
+  <h2>This is not TRUE</h2>
+  {% endif %}
+<h1>This is questions:</h1>
+
+    {% for key, ele in dict.items() %}
+        {% if key == "exam_content" %}
+            {% for x, y in ele.items() %}
+                {% for o, p in y.items() %}
+                    {% if o ==  "question" %}
+                        <h3>{{ x }}. {{ p }}</h3>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+
+  <img src="{{ url_for('static', filename='nkar.png') }}" >
+
+</body>
+</html>

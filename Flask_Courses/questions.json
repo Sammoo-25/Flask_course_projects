@@ -1,0 +1,286 @@
+{
+  "student_name": "write your name: ",
+  "student_surname": "write your surname: ",
+  "exam_content": {
+    "1": {
+      "question": "What will be the output of the following Python code?\nI = 1\nwhile True:\nif i%3 == 0:\nBreak\nprint(i)\nI + = 1",
+      "d": "error",
+      "c": "1 2 3",
+      "b": "1 2",
+      "a": "none of the mentioned"
+    },
+    "2": {
+      "question": "What will be the value of the following Python expression?\n4 + 3 % 5",
+      "c": "7",
+      "b": "2",
+      "a": "4",
+      "d": "1"
+    },
+    "3": {
+      "question": "Is Python case sensitive when dealing with identifiers?",
+      "d": "yes",
+      "a": "no",
+      "c": "machine dependent",
+      "b": "none of the mentioned"
+    },
+    "4": {
+      "question": "Why are local variable names beginning with an underscore discouraged?",
+      "d": "they are used to indicate a private variables of a class",
+      "c": "they confuse the interpreter",
+      "a": "they are used to indicate global variables",
+      "b": "they slow down execution"
+    },
+    "5": {
+      "question": "The expression Int(x) implies that the variable x is converted to integer.",
+      "a": "True",
+      "b": "False",
+      "d": "non option",
+      "c": "non option"
+    },
+    "6": {
+      "question": "Which one of these is floor division?",
+      "d": "//",
+      "c": "/",
+      "a": "%",
+      "b": "None of the mentioned"
+    },
+    "7": {
+      "question": "What will be the output of the following Python code?\n>>>str=\"hello\"\n>>>str[:2]\n>>>",
+      "a": "he",
+      "b": "lo",
+      "d": "olleh",
+      "c": "hello"
+    },
+    "8": {
+      "question": "Select all options that print.\nHello-how-are-you",
+      "c": "print(\u2018hello-\u2018 + \u2018how-are-you\u2019)",
+      "b": "print(\u2018hello\u2019, \u2018how\u2019, \u2018are\u2019, \u2018you\u2019 + \u2018-\u2018 * 4)",
+      "d": "print(\u2018hello\u2019, \u2018how\u2019, \u2018are\u2019, \u2018you\u2019)",
+      "a": "print(\u2018hello\u2019 + \u2018-\u2018 + \u2018how\u2019 + \u2018-\u2018 + \u2018are\u2019 + \u2018you\u2019)"
+    },
+    "9": {
+      "question": "What is the result of round(0.5) \u2013 round(-0.5)?",
+      "a": "Value depends on Python version",
+      "b": "2.0",
+      "c": "0.0",
+      "d": "1.0"
+    },
+    "10": {
+      "question": "What does 3 ^ 4 evaluate to?",
+      "d": "7",
+      "a": "12",
+      "c": "0.75",
+      "b": "81"
+    },
+    "11": {
+      "question": "What is the value of the following expression?\n8/4/2, 8/(4/2)",
+      "b": "(1.0, 4.0)",
+      "d": "(1.0, 1.0)",
+      "c": "(4.0. 1.0)",
+      "a": "(4.0, 4.0)"
+    },
+    "12": {
+      "question": "The expression 2**2**3 is evaluates as: (2**2)**3.",
+      "c": "False",
+      "a": "True",
+      "b": "non option",
+      "d": "non option"
+    },
+    "13": {
+      "question": "What is the value of the following Python expression?\nbin(0x8)",
+      "a": "\u20180b1000\u2019",
+      "c": "8",
+      "b": "1000",
+      "d": "\u20180bx1000\u2019"
+    },
+    "14": {
+      "question": "What will be the output of the following Python expression?\n~100?",
+      "c": "-101",
+      "b": "101",
+      "d": "100",
+      "a": "-100"
+    },
+    "15": {
+      "question": "What will be the output of the following Python code snippet?\nbool(\u2018False\u2019)\nBool()",
+      "b": "True\nFalse",
+      "d": "False\nTrue",
+      "a": "False\nFalse",
+      "c": "True\nTrue"
+    },
+    "16": {
+      "question": "What will be the output of the following Python code if the system date is 21st June, 2017 (Wednesday)?\n[] or {}\n{} or []",
+      "a": "{}\n[]",
+      "c": "[]\n[]",
+      "b": "[]\n{}",
+      "d": "{}\n{}"
+    },
+    "17": {
+      "question": "What will be the output of the following Python code?\nt = '%(a)s, %(b)s, %(c)s'\nt % dict(a='hello', b='world', c='universe')",
+      "b": "\u2018hello, world, universe\u2019",
+      "d": "\u2018hellos, worlds, universes\u2019",
+      "c": "Error",
+      "a": "hellos, world, universe"
+    },
+    "18": {
+      "question": "What will be the output of the following Python code snippet?\nX=3.3456789\n%-6.2f | %05.2f | %+06.1f' %(x, x, x)",
+      "b": "\u20183.35 | 03.35 | +003.3\u2019",
+      "c": "\u20183.3456789 | 03.3456789 | +03.3456789\u2019",
+      "a": "Error",
+      "d": "\u20183.34 | 03.34 | 03.34+\u2019"
+    },
+    "19": {
+      "question": "What will be the output of the following Python code?\n%.2f%s' % (1.2345, 99)",
+      "a": "\u20181.2399\u2019",
+      "b": "\u20181.2345\u2019, \u201899\u2019",
+      "c": "\u20181.234599\u2019",
+      "d": "1.23, 99"
+    },
+    "20": {
+      "question": "What will be the output of the following Python code?\nhex(255), int('FF', 16), 0xFF",
+      "c": "(\u20180xff\u2019, 255, 255)",
+      "b": "(\u20180xff\u2019, 155, 16, 255)",
+      "d": "Error",
+      "a": "[0xFF, 255, 16, 255]"
+    },
+    "21": {
+      "question": "What will be the output of the following Python code?\ndef mk(x):\n    def mk1():\n        print(\"Decorated\")\n        X()\n    return mk1\ndef mk2():\n    Print(\"Ordinary\")\np = mk(mk2)\nP()",
+      "b": "Decorated\nOrdinary",
+      "a": "Ordinary\nOrdinary",
+      "d": "Ordinary\nDecorated",
+      "c": "Decorated\nDecorated"
+    },
+    "22": {
+      "question": "What will be the output of the following Python code?\nd = {0: 'a', 1: 'b', 2: 'c'}\nfor x, y in d:\nprint(x, y)",
+      "d": "none of the mentioned",
+      "a": "a b c",
+      "b": "0 a 1 b 2 c",
+      "c": "0 1 2"
+    },
+    "23": {
+      "question": "What will be the output of the following Python code?\nfor i in range(10):\nif i == 5:\nbreak\nelse:\nprint(i)\nelse:\nprint(\"Here\")",
+      "c": "0 1 2 3 4",
+      "a": "0 1 2 3 4 5 Here",
+      "b": "0 1 2 3 4 Here",
+      "d": "1 2 3 4 5"
+    },
+    "24": {
+      "question": "What will be the output of the following Python code?\nprint(\"abcdef\".find(\"cd\"))",
+      "d": "2",
+      "c": "True",
+      "b": "3",
+      "a": "None of the mentioned"
+    },
+    "25": {
+      "question": "What will be the output of the following Python code?\nprint(\"Hello {} and {}\".format('foo', 'bin'))",
+      "a": "Hello foo and bin",
+      "d": "Hello {} and {}",
+      "b": "Error",
+      "c": "Hello and"
+    },
+    "26": {
+      "question": "What will be the output of the following Python code? def unpack(a,b,c,d): print(a+d) x = [1,2,3,4] unpack(*x)",
+      "b": "5",
+      "a": "[1,4]",
+      "d": "[5]",
+      "c": "Error"
+    },
+    "27": {
+      "question": "What will be the output of the following Python code? s=\"a@b@c@d\" a=list(s.partition(\"@\")) print(a) b=list(s.split(\"@\",3)) print(b)",
+      "b": "[\u2018a\u2019,\u2019@\u2019,\u2019b@c@d\u2019] [\u2018a\u2019,\u2019b\u2019,\u2019c\u2019,\u2019d\u2019]",
+      "c": "[\u2018a\u2019,\u2019@\u2019,\u2019b\u2019,\u2019@\u2019,\u2019c\u2019,\u2019@\u2019,\u2019d\u2019] [\u2018a\u2019,\u2019b\u2019,\u2019c\u2019,\u2019d\u2019]",
+      "a": "[\u2018a\u2019,\u2019b\u2019,\u2019c\u2019,\u2019d\u2019] [\u2018a\u2019,\u2019b\u2019,\u2019c\u2019,\u2019d\u2019]",
+      "d": "[\u2018a\u2019,\u2019@\u2019,\u2019b@c@d\u2019] [\u2018a\u2019,\u2019@\u2019,\u2019b\u2019,\u2019@\u2019,\u2019c\u2019,\u2019@\u2019,\u2019d\u2019]"
+    },
+    "28": {
+      "question": "Which of the following is the correct expansion of list_1 = [expr(i) for i in list_0 if func(i)]?",
+      "a": "list_1 = [] for i in list_0: if func(i): list_1.append(expr(i))",
+      "b": "for i in list_0: if func(i): list_1.append(expr(i))",
+      "d": "list_1 = [] for i in list_0: if func(i): list_1.append(i)",
+      "c": "none of the mentioned"
+    },
+    "29": {
+      "question": "What will be the output of the following Python code? >>>t1 = (1, 2, 4, 3) >>>t2 = (1, 2, 3, 4) >>>t1 < t2",
+      "a": "False",
+      "b": "True",
+      "c": "Error",
+      "d": "None"
+    },
+    "30": {
+      "question": "Is the following Python code valid? >>> a=2,3,4,5 >>> a",
+      "a": "Yes, (2,3,4,5) is printed",
+      "b": "Yes, [2,3,4,5] is printed",
+      "d": "No, too many values to unpack",
+      "c": "Yes, 2 is printed"
+    },
+    "31": {
+      "question": "What will be the output of the following Python code? s={4>3, 0, 3-3} all(s) any(s)",
+      "d": "0 1",
+      "a": "1 0",
+      "b": "1 1",
+      "c": "0 0"
+    },
+    "32": {
+      "question": "What will be the output of the following Python code? >>> a={i: 'A' + str(i) for i in range(5)} >>> a",
+      "a": "{0: \u2018A0\u2019, 1: \u2018A1\u2019, 2: \u2018A2\u2019, 3: \u2018A3\u2019, 4: \u2018A4\u2019}",
+      "c": "An exception is thrown",
+      "b": "{0: \u2018A\u2019, 1: \u2018A\u2019, 2: \u2018A\u2019, 3: \u2018A\u2019, 4: \u2018A\u2019}",
+      "d": "{0: \u20180\u2019, 1: \u20181\u2019, 2: \u20182\u2019, 3: \u20183\u2019, 4: \u20184\u2019}"
+    },
+    "33": {
+      "question": "Which of the statements about dictionary values if false?",
+      "a": "Values of a dictionary must be unique",
+      "b": "The values of the dictionary can be accessed as dict[key]",
+      "c": "More than one key can have the same value",
+      "d": "Values of a dictionary can be a mixture of letters and numbers"
+    },
+    "34": {
+      "question": "Which of the following functions is a built-in function in python?",
+      "d": "print()",
+      "b": "sqrt()",
+      "c": "factorial()",
+      "a": "seed()"
+    },
+    "35": {
+      "question": "What will be the output of the following Python functions? x=3 eval('x^2')",
+      "c": "1",
+      "a": "Error",
+      "b": "9",
+      "d": "6"
+    },
+    "36": {
+      "question": "What is a variable defined inside a function referred to as?",
+      "d": "A local variable",
+      "c": "A volatile variable",
+      "b": "A global variable",
+      "a": "An automatic variable"
+    },
+    "37": {
+      "question": "What will be the output of the following Python code? def foo(x): x = ['def', 'abc'] return id(x) q = ['abc', 'def'] print(id(q) == foo(q))",
+      "d": "False",
+      "c": "True",
+      "b": "None",
+      "a": "Error"
+    },
+    "38": {
+      "question": "How are keyword arguments specified in the function heading?",
+      "d": "two stars followed by a valid identifier",
+      "c": "one underscore followed by a valid identifier",
+      "a": "one-star followed by a valid identifier",
+      "b": "two underscores followed by a valid identifier"
+    },
+    "39": {
+      "question": "What will be the output of the following Python code? def f(): x=4 x=1 f() x",
+      "a": "1",
+      "d": "4",
+      "c": "Junk value",
+      "b": "Error"
+    },
+    "40": {
+      "question": "What will be the output of the following Python code? x=100 def f1(): global x x=90 def f2(): global x x=80 print(x)",
+      "b": "100",
+      "a": "90",
+      "d": "80",
+      "c": "Error"
+    }
+  }
+}

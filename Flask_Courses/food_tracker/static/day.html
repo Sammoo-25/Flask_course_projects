@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Tracker App - Day</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">Food Tracker App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('day') }}">Day</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('food') }}">Food</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Day Page -->
+<section id="day" class="container mt-5">
+    <h1>Day Page</h1>
+
+    <div class="form-group">
+        <label for="mealType">Select Food</label>
+        <form method="post" action="{{ url_for('day') }}">
+            <select class="form-control" id="mealType" name="select_food">
+                {% for food in added_foods_name %}
+                <option>{{ food[0] }}</option>
+                {% endfor %}
+            </select>
+        </form>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Food</button>
+    `
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">July 9, 2023</h5>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">Foods</h4>
+<!--            {% for food in added_foods %}-->
+<!--            <li class="list-group-item d-flex justify-content-between align-items-center">-->
+<!--                {{ food[0] }}-->
+<!--                <span class="badge badge-primary badge-pill">{{ food[1] }} calories ({{ food[2] }})</span>-->
+<!--            </li>-->
+<!--            {% endfor %}-->
+            <!--            <ul class="list-group">-->
+            <!--                <li class="list-group-item d-flex justify-content-between align-items-center">-->
+            <!--                    Breakfast-->
+            <!--                    <span class="badge badge-primary badge-pill">500 calories</span>-->
+            <!--                </li>-->
+            <!--                <li class="list-group-item d-flex justify-content-between align-items-center">-->
+            <!--                    Lunch-->
+            <!--                    <span class="badge badge-primary badge-pill">800 calories</span>-->
+            <!--                </li>-->
+            <!--                <li class="list-group-item d-flex justify-content-between align-items-center">-->
+            <!--                    Dinner-->
+            <!--                    <span class="badge badge-primary badge-pill">600 calories</span>-->
+            <!--                </li>-->
+            <!--            </ul>-->
+
+            <h4 class="card-title mt-4">Total Calories</h4>
+            <p class="card-text">Todays total calories: <strong>1900</strong></p>
+        </div>
+    </div>
+
+
+</section>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
