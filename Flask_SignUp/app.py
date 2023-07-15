@@ -1,61 +1,75 @@
-from flask import Flask, request, render_template
+from flask import Flask, render_template, flash, redirect, url_for
+from flask_login import login_user
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField
+from wtforms.validators import InputRequired, Length, Regexp, Email
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Samvel357552@localhost:5432/postgres'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+app.config['SECRET_KEY'] = 'Mysecret!'
 db = SQLAlchemy(app)
-app.app_context().push()
 
 
-class Users(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(30), unique=True)
-    password = db.Column(db.String(30), unique=True)
-    email = db.Column(db.String(30))
-
-    orders = db.relationship('Order', backref='user', lazy='dynamic')
-    courses = db.relationship('Courses', secondary='user_courses', backref='user', lazy='dynamic')
-    def __repr__(self):
-        return '<User: %r>' % self.username
-
-class Order(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    price = db.Column(db.Integer)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-
-class Courses(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30))
-
-db.Table('user_courses',
-         db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
-         db.Column('course_id', db.Integer, db.ForeignKey('courses.id')))
+class SighnUp(FlaskForm):
+    username = StringField('username', validators=[
+        InputRequired(message='Username is required'),
+        Length(min=4, max=20, message='Username must be between 4 and 20 characters'),
+        Regexp(r'^\w+$', message='Username can only contain letters, numbers, and underscores')])
+    password = PasswordField('Password', validators=[
+        InputRequired(message='Password is required'),
+        Length(min=6, message='Password must be at least 6 characters')])
+    email = StringField('Email', validators=[Email()])
 
 
+class Signin(FlaskForm):
+    username = StringField('username', validators=[
+        InputRequired(message='Username is required'),
+        Length(min=4, max=20, message='Username must be between 4 and 20 characters'),
+        Regexp(r'^\w+$', message='Username can only contain letters, numbers, and underscores')])
+    password = PasswordField('Password', validators=[
+        InputRequired(message='Password is required'),
+        Length(min=6, message='Password must be at least 6 characters')])
 
 
-
+@app.route('/')
+@app.route('/home', methods=['POST', 'GET'])
+def home():
+    return render_template('home.html')
 
 
 @app.route('/regis', methods=['POST', 'GET'])
 def registor():
-    if request.method == 'POST':
-        username = request.form['username']
-        email = request.form['email']
-        password = request.form['psw']
-        if username and email and password:
-            new_user = Users(username=username, email=email, password=password)
+    form = SighnUp()
+    from models import Users
+    if form.validate_on_submit():
+        if form.username.data and form.email.data and form.password.data:
+            new_user = Users(username=form.username.data, email=form.email.data, password=form.password.data)
             db.session.add(new_user)
             db.session.commit()
-        return render_template('index.html')
-    else:
-        return render_template('index.html')
+        return render_template('signin.html', form=form)
+
+    return render_template('index.html', form=form)
 
 
-with app.app_context():
-    db.create_all()
+@app.route('/signin', methods=['POST', 'GET'])
+def signin():
+    from models import Users
+
+    signIn = Signin()
+    if signIn.validate_on_submit():
+        user = Users.query.filter_by(username=signIn.username.data).first()
+        if user:
+            login_user(user)
+            return redirect(url_for('home'))
+        else:
+            flash("Your username or password is incorrect", "error")
+
+    return render_template('signin.html', signIn=signIn)
+
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
