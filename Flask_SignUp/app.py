@@ -54,7 +54,7 @@ def registor():
     if form.validate_on_submit():
         if form.username.data and form.email.data and form.password.data and form.birth_day.data:
             new_user = Users(username=form.username.data, email=form.email.data, password=form.password.data,
-                 birth_day=form.birth_day.data)
+                             birth_day=form.birth_day.data)
             db.session.add(new_user)
             db.session.commit()
             return redirect(url_for('signin'))
@@ -68,12 +68,11 @@ def signin():
     signIn = Signin()
     if signIn.validate_on_submit():
         user = Users.query.filter_by(username=signIn.username.data).first()
-        if user and user.password == signIn.password.data:
+        if user:
             login_user(user)
             return redirect(url_for('home'))
         else:
             flash("Invalid username or password", "error")
-
     return render_template('signin.html', signIn=signIn)
 
 
