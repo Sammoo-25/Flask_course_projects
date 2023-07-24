@@ -1,4 +1,4 @@
-from app import db
+from app import db, app
 from flask_login import UserMixin
 
 class Users(db.Model, UserMixin):
@@ -7,3 +7,7 @@ class Users(db.Model, UserMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(128), nullable=False)
     birth_day = db.Column(db.DateTime, nullable=False)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
