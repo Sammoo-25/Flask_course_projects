@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, PasswordField, DateField
 from wtforms.validators import InputRequired, Length, Regexp, Email
+from flask_migrate import Migrate
+import bcrypt
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Samvel357552@localhost:5432/postgres'
@@ -13,7 +15,9 @@ app.config['SECRET_KEY'] = 'Mysecret!'
 app.config['RECAPTCHA_PUBLIC_KEY'] = '6LeriS4nAAAAACm-6oIe7te8PiN-0YKtuw_eh1W-'
 app.config['RECAPTCHA_PRIVATE_KEY'] = '6LeriS4nAAAAAPRo0pg39pjVdT-Flc4sp5AMBO7S'
 
+
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 
 class SighnUp(FlaskForm):
@@ -51,15 +55,21 @@ def registor():
     form = SighnUp()
     signIn = Signin()
     from models import Users
+
     if form.validate_on_submit():
         if form.username.data and form.email.data and form.password.data and form.birth_day.data:
-            new_user = Users(username=form.username.data, email=form.email.data, password=form.password.data,
-                             birth_day=form.birth_day.data)
+            # Hash the password using bcrypt
+            hashed_password = bcrypt.hashpw(form.password.data.encode('utf-8'), bcrypt.gensalt())
+
+            # Create a new user with the hashed password
+            new_user = Users(username=form.username.data, email=form.email.data, password=hashed_password, birth_day=form.birth_day.data)
             db.session.add(new_user)
             db.session.commit()
+
             return redirect(url_for('signin'))
 
     return render_template('index.html', form=form, signIn=signIn)
+
 
 
 @app.route('/signin', methods=['POST', 'GET'])
